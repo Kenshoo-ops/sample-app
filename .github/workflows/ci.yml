@@ -1,0 +1,16 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    permissions:
+      contents: read
+      packages: write
+    # While testing, point at the branch that holds your workflow changes
+    # (for example @feat/secure-build). Switch to @v0.1.0 once it is tagged.
+    uses: Kenshoo-ops/kenshoo-workflows/.github/workflows/secure-build.yml@main
+    with:
+      image: ghcr.io/kenshoo-ops/sample-app
