@@ -2,7 +2,10 @@ name: ci
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - "feat/**"
+      - "chore/**"
   workflow_dispatch:
 
 jobs:
@@ -10,8 +13,10 @@ jobs:
     permissions:
       contents: read
       packages: write
-    # While testing, point at the branch that holds your workflow changes
-    # (for example @feat/secure-build). Switch to @v0.1.0 once it is tagged.
-    uses: Kenshoo-ops/kenshoo-workflows/.github/workflows/secure-build.yml@chore/enable-dependabot
+      id-token: write
+      attestations: write   # the called workflow can only use permissions the caller grants
+    # While testing, point at the branch that holds your workflow changes.
+    # After the pull request is merged, switch back to @main.
+    uses: Kenshoo-ops/kenshoo-workflows/.github/workflows/secure-build.yml@main
     with:
       image: ghcr.io/kenshoo-ops/sample-app
