@@ -12,7 +12,7 @@ jobs:
       packages: write
       id-token: write
       attestations: write   # the called workflow can only use permissions the caller grants
-          # Pinned to a released version of the pipeline. Update when a new release is tagged.
+    # Pinned to a released version of the pipeline. Update when a new release is tagged.
     uses: Kenshoo-ops/kenshoo-workflows/.github/workflows/secure-build.yml@v0.1.0
     with:
       image: ghcr.io/kenshoo-ops/sample-app
