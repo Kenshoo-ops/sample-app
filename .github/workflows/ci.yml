@@ -10,8 +10,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-    # While testing, point at the branch that holds your workflow changes
-    # (for example @feat/secure-build). Switch to @v0.1.0 once it is tagged.
-    uses: Kenshoo-ops/kenshoo-workflows/.github/workflows/secure-build.yml@feat/secure-build-sbom
+      id-token: write   # the called workflow can only use permissions the caller grants
+    # While testing, point at the branch that holds your workflow changes.
+    # Switch back to @main after the pull request is merged, later to @v0.1.0.
+    uses: Kenshoo-ops/kenshoo-workflows/.github/workflows/secure-build.yml@feat/secure-build-sign
     with:
       image: ghcr.io/kenshoo-ops/sample-app
