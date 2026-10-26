@@ -12,6 +12,6 @@ jobs:
       packages: write
     # While testing, point at the branch that holds your workflow changes
     # (for example @feat/secure-build). Switch to @v0.1.0 once it is tagged.
-    uses: Kenshoo-ops/kenshoo-workflows/.github/workflows/secure-build.yml@feat/secure-build-sbom
+    uses: Kenshoo-ops/kenshoo-workflows/.github/workflows/secure-build.yml@chore/enable-dependabot
     with:
       image: ghcr.io/kenshoo-ops/sample-app
