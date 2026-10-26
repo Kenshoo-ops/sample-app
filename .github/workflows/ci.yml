@@ -17,6 +17,6 @@ jobs:
       attestations: write   # the called workflow can only use permissions the caller grants
     # While testing, point at the branch that holds your workflow changes.
     # After the pull request is merged, switch back to @main.
-    uses: Kenshoo-ops/kenshoo-workflows/.github/workflows/secure-build.yml@main
+    uses: Kenshoo-ops/kenshoo-workflows/.github/workflows/secure-build.yml@v0.1.0
     with:
       image: ghcr.io/kenshoo-ops/sample-app
